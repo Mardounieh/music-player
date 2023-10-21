@@ -1,0 +1,137 @@
+*{ 
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    font-family: Nunito;
+}
+:root{
+    --bgColor : #16171D;
+    --mainColor : #AFB8FC;
+    --secondColor : #FAABFD;
+    --lightColor : #f5f5f5;
+    --grayColor : #969696;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.musicplayer{
+    width: 19rem; height: 35rem;
+    background-color: var(--bgColor);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid var(--grayColor);
+}
+
+/* Header */
+
+.songCover{
+    width: 75%; 
+}
+.songCover img{
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/* Main */
+
+.songInfo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: .8rem;
+}
+.songName{
+    color: var(--lightColor);
+    font-size: 1.2rem;
+}
+.songSinger{
+    color: var(--grayColor);
+    font-size: 0.85rem;
+}
+.progressContainer{
+    width: 75%;
+    height: .2rem;
+    border-radius: 1rem;
+    background-color: #2F2D3C;
+    cursor: pointer;
+}
+.songProgress{
+    background-color: var(--secondColor);
+    border-radius: 1rem;
+    height: .3rem;
+    position: relative;
+    top: -.8px;
+    width: 0;
+}
+.audio{display: none;}
+#file{display: none;}
+/* Footer */
+
+.songController{width: 100%;}
+.ButtonsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+}
+.controlButton{
+    width: 3rem; height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--lightColor);
+    transition: .5s;
+    font-size: 1.2rem;
+}
+label.listSong{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.playSong{
+    width: 6.5rem; height: 6.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.playSong_Colored{
+    width: 6.5rem; height: 6.5rem;
+    background: linear-gradient(to left,var(--mainColor),var(--secondColor));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: playing .5s linear infinite paused;
+
+}
+.playSong_wrapper{
+    width: 80%; height: 80%;
+    background: var(--bgColor);
+    border-radius: 50%;
+    transition: .5s;
+}
+.playSong:hover .playSong_wrapper{background-color: transparent;}
+
+.playSongIcon{
+    position: absolute;
+    z-index: 2;
+}
+.prevSong:hover , .favSong:hover{
+    background-color: var(--secondColor);
+    color: var(--bgColor);
+}
+.nextSong:hover , .listSong:hover{
+    background-color: var(--mainColor);
+    color: var(--bgColor);
+
+}
+@keyframes playing {
+    to{transform: rotate(1turn);}
+}

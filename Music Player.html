@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="musicplayer">
-        <header class="SongCover">
+        <header class="songCover">
             <img src="assets/SongCover.jpg" alt="Song Cover">
         </header>
         <main class="songInfo">
@@ -21,7 +21,21 @@
             </div>
         </main>
         <footer class="songConltroller">
-            <button class="prevSong controlButton fal fa-step-backward"></button>
+            <div class="ButtonsContainer">
+                <button class="prevSong controlButton fal fa-step-backward"></button>
+                <button class="playSong controlButton">
+                    <i class="fas fa-play playSongIcon"></i>
+                    <div class="playSong_Colored">
+                        <div class="playSong_wrapper"></div>
+                    </div>
+                </button>
+                <button class="nextSong controlButton fal fa-step-forward"></button>
+            </div>
+            <div class="ButtonsContainer">
+                <button class="favSong controlButton fal fa-heart"></button>
+                <input type="file" id="file" multiple>
+                <label for="file" class="listSong controlButton fal fa-list-music"></label>
+            </div>
         </footer>
     </div>
 </body>
