@@ -56,9 +56,10 @@ body {
 }
 .progressContainer {
     width: 75%;
-    height: .2rem;
+    height: .3rem;
     background-color: rgb(47, 45, 60);
     border-radius: 1em;
+    cursor: pointer;
 }
 .songProgress {
     background-color: var(--secondColor);
@@ -67,6 +68,7 @@ body {
     position: relative;
     top: -.8px;
     width: 0;
+    cursor: pointer;
 }
 .audio{display: none;}
 #file{display: none;}
