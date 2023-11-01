@@ -5,11 +5,16 @@ const progressContainer = document.querySelector('.progressContainer');
 const songProgress = document.querySelector('.songProgress');
 
 const audio = document.querySelector('audio');
+const file = document.querySelector('#file')
 
+file.addEventListener('change',song);
 playSongButton.addEventListener('click',playingSong);
 audio.addEventListener('timeupdate',progressUpdate);
-progressContainer.addEventListener('click', seekSong)
+progressContainer.addEventListener('click', seekSong);
 
+function song() {
+    
+}
 function playingSong() {
     if(playSongIcon.classList.contains('fa-play')) playSong();
     else pauseSong();
