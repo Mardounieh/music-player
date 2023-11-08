@@ -3,17 +3,34 @@ const playSong_Colored = document.querySelector('.playSong_Colored');
 const playSongIcon = document.querySelector('.playSongIcon');
 const progressContainer = document.querySelector('.progressContainer');
 const songProgress = document.querySelector('.songProgress');
-
+const prevSong = document.querySelector('.prevSong');
+const nextSong = document.querySelector('.nextSong');
 const audio = document.querySelector('audio');
 const file = document.querySelector('#file')
+let songIndex = 0;
+
+const songName = document.querySelector('.songName');
+const songSinger = document.querySelector('.songSinger');
 
 file.addEventListener('change',song);
 playSongButton.addEventListener('click',playingSong);
 audio.addEventListener('timeupdate',progressUpdate);
 progressContainer.addEventListener('click', seekSong);
+prevSong.addEventListener('click',()=>{song('previous')});
+nextSong.addEventListener('click',()=>{song('next')});
 
-function song() {
-    
+function song(go) {
+    if(go === 'next') {
+        songIndex++
+    } else if(go === 'previous') {songIndex--};
+    const songs = Array.from(file.files);
+    audio.src = `assets/Music/${songs[songIndex].name}`;
+    const currentFileName = songs[songIndex].name;
+    songSinger.innerText = currentFileName.split('-')[0];
+    songName.innerText = currentFileName.split('-')[1].split('.')[0];
+    playSong();
+    playingSong();
+    playSongButton.disabled = false;
 }
 function playingSong() {
     if(playSongIcon.classList.contains('fa-play')) playSong();
